@@ -15,8 +15,10 @@ const LoginNavbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl sm:text-2xl font-display font-bold text-woodland cursor-pointer" onClick={() => navigate('/home')}>
-              Dabite
+            <h1 className="text-xl sm:text-2xl font-display font-bold text-woodland cursor-pointer"
+             onClick={() => navigate('/Login')}
+             >
+              dabite
             </h1>
           </div>
 
@@ -25,7 +27,8 @@ const LoginNavbar = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className="text-kelp hover:text-woodland text-sm lg:text-base px-3 lg:px-4"
+              className="text-kelp hover:text-woodland hover:bg-stark-white/0 text-sm lg:text-base px-3 lg:px-4"
+              onClick={() => navigate('/PartnerPage')}
             >
               <Users className="h-4 w-4 mr-2" />
               Partner with Us
@@ -33,7 +36,7 @@ const LoginNavbar = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className="text-kelp hover:text-woodland text-sm lg:text-base px-3 lg:px-4"
+              className="text-kelp hover:text-woodland hover:bg-stark-white/0 text-sm lg:text-base px-3 lg:px-4"
             >
               <Smartphone className="h-4 w-4 mr-2" />
               Get the App
@@ -41,15 +44,16 @@ const LoginNavbar = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className="text-kelp hover:text-woodland text-sm lg:text-base px-3 lg:px-4"
+              className="text-kelp hover:text-woodland hover:bg-stark-white/0 text-sm lg:text-base px-3 lg:px-4"
               onClick={() => navigate('/signup')}
             >
               <UserPlus className="h-4 w-4 mr-2" />
               Sign Up
             </Button>
             <Button 
-              className="bg-woodland hover:bg-kelp text-stark-white text-sm lg:text-base px-4 lg:px-6"
+              className="bg-woodland hover:bg-kelp text-stark-white hover:text-stark-white text-sm lg:text-base px-4 lg:px-6"
               size="sm"
+              onClick={() => navigate('/login#login')}
             >
               Sign In
             </Button>
@@ -68,7 +72,11 @@ const LoginNavbar = () => {
                   <Button 
                     variant="ghost" 
                     className="w-full justify-start text-kelp hover:text-woodland text-base"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() =>
+                      {
+                       setIsOpen(false);
+                      navigate('/partnerpage')
+                    }}
                   >
                     <Users className="h-5 w-5 mr-3" />
                     Partner with Us
@@ -94,7 +102,7 @@ const LoginNavbar = () => {
                   </Button>
                   <Button 
                     className="w-full bg-woodland hover:bg-kelp text-stark-white text-base"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => navigate('/login#login')}
                   >
                     Sign In
                   </Button>

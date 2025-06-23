@@ -63,7 +63,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Dabite brand colors
+				// dabite brand colors
 				woodland: '#393c1f',
 				confetti: '#fcf385',
 				'stark-white': '#e7e5d8',

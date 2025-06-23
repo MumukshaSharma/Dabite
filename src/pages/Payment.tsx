@@ -75,13 +75,13 @@ const Payment = () => {
       <Navbar />
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-display font-bold text-woodland mb-8">Complete Your Order</h1>
+          <h1 className="text-3xl font-display font-bold text-woodland mb-8 cursor-default">Complete Your Order</h1>
           
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Payment Form */}
             <div className="lg:col-span-2 space-y-6">
               {/* Order Details */}
-              <Card className="border-woodland/20">
+              <Card className="border-woodland/20 cursor-default rounded-xl shadow-md opacity-90">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
                     <Tag className="h-5 w-5" />
@@ -119,7 +119,7 @@ const Payment = () => {
               </Card>
 
               {/* Coupon Section */}
-              <Card className="border-woodland/20">
+              <Card className="border-woodland/20 rounded-xl cursor-default opacity-90 shadow-md">
                 <CardHeader>
                   <CardTitle>Apply Coupon</CardTitle>
                   <CardDescription>Get amazing discounts on your order</CardDescription>
@@ -127,11 +127,12 @@ const Payment = () => {
                 <CardContent>
                   <div className="flex space-x-2 mb-4">
                     <Input
+                    className="rounded-xl shadow-md placeholder-kelp"
                       placeholder="Enter coupon code"
                       value={couponCode}
                       onChange={(e) => setCouponCode(e.target.value)}
                     />
-                    <Button onClick={applyCoupon} variant="outline">Apply</Button>
+                    <Button onClick={applyCoupon} variant="outline" className="rounded-xl shadow-md">Apply</Button>
                   </div>
                   
                   {appliedCoupon && (
@@ -145,7 +146,7 @@ const Payment = () => {
                   <div className="space-y-2">
                     <p className="text-sm font-medium text-kelp">Available Coupons:</p>
                     {coupons.map((coupon) => (
-                      <div key={coupon.code} className="flex justify-between items-center p-2 border border-woodland/10 rounded">
+                      <div key={coupon.code} className="flex justify-between items-center p-2 border border-woodland/10 rounded-xl shadow-sm">
                         <div>
                           <span className="font-medium text-woodland">{coupon.code}</span>
                           <p className="text-xs text-kelp">{coupon.description}</p>
@@ -154,6 +155,7 @@ const Payment = () => {
                           size="sm" 
                           variant="ghost" 
                           onClick={() => setCouponCode(coupon.code)}
+                          className="rounded-xl hover:bg-kelp hover:text-stark-white"
                         >
                           Use
                         </Button>
@@ -164,23 +166,23 @@ const Payment = () => {
               </Card>
 
               {/* Payment Methods */}
-              <Card className="border-woodland/20">
+              <Card className="border-woodland/20 rounded-xl shadow-md">
                 <CardHeader>
                   <CardTitle>Payment Method</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
-                    <div className="flex items-center space-x-2 p-3 border border-woodland/10 rounded">
+                    <div className="flex items-center space-x-2 p-3 border border-woodland/10 rounded-xl shadow-sm">
                       <RadioGroupItem value="upi" id="upi" />
                       <Smartphone className="h-5 w-5 text-kelp" />
                       <Label htmlFor="upi">UPI (GPay, PhonePe, Paytm)</Label>
                     </div>
-                    <div className="flex items-center space-x-2 p-3 border border-woodland/10 rounded">
+                    <div className="flex items-center space-x-2 p-3 border border-woodland/10 rounded-xl shadow-sm">
                       <RadioGroupItem value="card" id="card" />
                       <CreditCard className="h-5 w-5 text-kelp" />
                       <Label htmlFor="card">Credit/Debit Card</Label>
                     </div>
-                    <div className="flex items-center space-x-2 p-3 border border-woodland/10 rounded">
+                    <div className="flex items-center space-x-2 p-3 border border-woodland/10 rounded-xl shadow-sm">
                       <RadioGroupItem value="wallet" id="wallet" />
                       <Wallet className="h-5 w-5 text-kelp" />
                       <Label htmlFor="wallet">Digital Wallet</Label>
@@ -192,7 +194,7 @@ const Payment = () => {
 
             {/* Order Summary */}
             <div className="lg:col-span-1">
-              <Card className="border-woodland/20 sticky top-4">
+              <Card className="border-woodland/20 sticky top-4 rounded-xl shadow-md cursor-default">
                 <CardHeader>
                   <CardTitle>Order Summary</CardTitle>
                 </CardHeader>
@@ -230,7 +232,7 @@ const Payment = () => {
 
                   <Button 
                     onClick={handlePayment}
-                    className="w-full bg-woodland hover:bg-kelp text-stark-white"
+                    className="w-full bg-kelp hover:bg-stark-white text-stark-white rounded-xl hover:text-kelp"
                   >
                     Complete Payment
                   </Button>

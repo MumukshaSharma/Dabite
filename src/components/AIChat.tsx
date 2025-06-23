@@ -17,7 +17,7 @@ const AIChat = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi! I'm your Dabite food assistant. I can help you find the perfect tiffin based on your preferences, mood, or dietary needs. What are you craving today?",
+      text: "Hi! I'm your dabite food assistant. I can help you find the perfect tiffin based on your preferences, mood, or dietary needs. What are you craving today?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -36,27 +36,27 @@ const AIChat = () => {
 
   const generateBotResponse = (userMessage: string): string => {
     const lowerMessage = userMessage.toLowerCase();
-    
+
     if (lowerMessage.includes('recommend') || lowerMessage.includes('suggest')) {
       return "Based on your preferences, I'd recommend our Gujarati Thali for a balanced meal, or our South Indian combo if you love rice dishes. Both are popular among students! Would you like to know more about either?";
     }
-    
+
     if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
       return "Our tiffin plans start at just ₹99/day! We have daily, weekly, and monthly plans. The monthly plan gives you the best value at ₹2,499. Shall I show you all our pricing options?";
     }
-    
+
     if (lowerMessage.includes('spicy') || lowerMessage.includes('hot')) {
       return "I love that you enjoy spicy food! Our Punjabi Tiffin and Rajasthani Thali are perfect for spice lovers. We can also customize the spice level for any meal. What's your spice tolerance on a scale of 1-10?";
     }
-    
+
     if (lowerMessage.includes('healthy') || lowerMessage.includes('diet')) {
       return "Great choice for healthy eating! Our Protein-Rich Bowl and Keto-Friendly Tiffin are very popular. We also have a special diabetes-friendly menu. What are your specific health goals?";
     }
-    
+
     if (lowerMessage.includes('veg') || lowerMessage.includes('vegetarian')) {
       return "We have amazing vegetarian options! Our Pure Veg Thali, Jain Special, and Gujarati Combo are customer favorites. All our veg meals are prepared in a separate kitchen. Which region's cuisine do you prefer?";
     }
-    
+
     return "That sounds interesting! Let me help you find the perfect meal. You can also browse our menu or tell me about your dietary preferences, and I'll suggest the best options for you.";
   };
 
@@ -82,7 +82,7 @@ const AIChat = () => {
         sender: 'bot',
         timestamp: new Date()
       };
-      
+
       setMessages(prev => [...prev, botResponse]);
       setIsTyping(false);
     }, 1500);
@@ -98,7 +98,7 @@ const AIChat = () => {
     <>
       {/* Chat Toggle Button */}
       <Button
-        onClick={() => setIsOpen(true)}
+        onClick={() => setIsOpen((prev) => !prev)} // 👈 Toggle on click
         className="fixed bottom-6 right-6 h-14 w-14 rounded-full bg-woodland hover:bg-kelp shadow-lg z-50"
         size="icon"
       >
@@ -107,12 +107,12 @@ const AIChat = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <Card className="fixed bottom-24 right-6 w-80 h-96 shadow-xl z-50 border-woodland/20 bg-stark-white">
+        <Card className="fixed bottom-24 right-6 w-80 h-[500px] shadow-xl z-50 border-woodland/20 bg-kelp flex flex-col cursor-default rounded-2xl border-none">
           <CardHeader className="bg-woodland text-stark-white rounded-t-lg">
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg flex items-center gap-2">
                 <Bot className="h-5 w-5" />
-                Dabite AI Chef
+                daBOT
               </CardTitle>
               <Button
                 variant="ghost"
@@ -124,16 +124,14 @@ const AIChat = () => {
               </Button>
             </div>
           </CardHeader>
-          
-          <CardContent className="p-0 flex flex-col h-80">
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+          <CardContent className="p-0 flex flex-col flex-1 overflow-hidden">
+            {/* Messages Scroll Area */}
+            <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex items-start gap-2 ${
-                    message.sender === 'user' ? 'justify-end' : 'justify-start'
-                  }`}
+                  className={`flex items-start gap-2 ${message.sender === 'user' ? 'justify-end' : 'justify-start'
+                    }`}
                 >
                   {message.sender === 'bot' && (
                     <div className="w-6 h-6 rounded-full bg-woodland flex items-center justify-center flex-shrink-0">
@@ -141,11 +139,10 @@ const AIChat = () => {
                     </div>
                   )}
                   <div
-                    className={`max-w-[70%] p-3 rounded-lg text-sm ${
-                      message.sender === 'user'
-                        ? 'bg-woodland text-stark-white'
-                        : 'bg-confetti/30 text-kelp'
-                    }`}
+                    className={`max-w-[70%] p-3 rounded-lg text-sm ${message.sender === 'user'
+                      ? 'bg-woodland text-stark-white'
+                      : 'bg-confetti/30 text-kelp'
+                      }`}
                   >
                     {message.text}
                   </div>
@@ -156,7 +153,7 @@ const AIChat = () => {
                   )}
                 </div>
               ))}
-              
+
               {isTyping && (
                 <div className="flex items-start gap-2">
                   <div className="w-6 h-6 rounded-full bg-woodland flex items-center justify-center">
@@ -175,19 +172,19 @@ const AIChat = () => {
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-woodland/20">
-              <div className="flex gap-2">
+            <div className="border-t border-woodland/20 px-4 py-3">
+              <div className="flex items-center gap-2 w-full">
                 <Input
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
+                  onKeyDown={handleKeyPress}
                   placeholder="Ask about food recommendations..."
-                  className="border-woodland/30 focus:border-woodland"
+                  className="flex-1 min-w-0 border-woodland/30 bg-stark-white focus:border-woodland"
                 />
                 <Button
                   onClick={handleSendMessage}
                   size="sm"
-                  className="bg-woodland hover:bg-kelp text-stark-white"
+                  className="bg-woodland hover:bg-woodland hover:text-stark-white text-stark-white"
                 >
                   <Send className="h-4 w-4" />
                 </Button>

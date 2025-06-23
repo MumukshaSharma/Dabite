@@ -53,9 +53,12 @@ const Features = () => {
     <section className="py-20 bg-stark-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <Badge className="bg-confetti text-woodland px-4 py-2 text-sm font-medium mb-4">
-            Why Choose Dabite?
-          </Badge>
+       <div className="flex justify-center mb-6">
+  <p className="inline-block text-xl text-woodland">
+    why choose dabite?
+  </p>
+</div>
+
           <h2 className="text-4xl lg:text-5xl font-display font-bold text-woodland mb-6">
             More than just food delivery
           </h2>

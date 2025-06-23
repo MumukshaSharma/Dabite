@@ -33,17 +33,21 @@ const LoadingScreen = () => {
         <div className="relative">
           <div className="flex items-center justify-center space-x-2">
             {/* Box Icon */}
-            <div className="w-16 h-16 bg-confetti rounded-lg flex items-center justify-center animate-bounce">
-              <span className="text-2xl">📦</span>
+            <div className="w-16 h-16 rounded-lg flex items-center justify-center animate-bounce">
+              <img
+                src="/images/sumnnn.png" // or .svg if it's an SVG
+                alt="dabite Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             
-            {/* Da text */}
+            {/* da text */}
             <div className="text-6xl font-display font-bold text-confetti animate-slide-in-left">
-              Da
+              da
             </div>
             
             {/* Bite text - appears with delay */}
-            <div className={`text-6xl font-display font-bold text-stark-white transition-all duration-500 ${
+            <div className={`text-6xl font-display font-bold text-stark-white transition-all duration-40 ${
               showBite ? 'animate-slide-in-right opacity-100' : 'opacity-0'
             }`}>
               bite

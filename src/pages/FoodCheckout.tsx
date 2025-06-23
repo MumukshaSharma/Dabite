@@ -160,7 +160,7 @@ const FoodCheckout = () => {
                     </div>
                     <div className="flex items-center space-x-3 p-3 border border-woodland/20 rounded-lg">
                       <div className="w-6 h-6 border-2 border-woodland/20 rounded-full"></div>
-                      <span className="text-kelp">Dabite Wallet</span>
+                      <span className="text-kelp">dabite Wallet</span>
                     </div>
                   </div>
                 </CardContent>

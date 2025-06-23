@@ -11,12 +11,12 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Priya Sharma",
+      name: "Kriti Jain",
       role: "Engineering Student",
       college: "IIT Delhi",
       rating: 5,
-      text: "Dabite has been a lifesaver! The food tastes just like home and fits perfectly within my budget. The dal chawal combo is my favorite - it's so comforting after long study sessions.",
-      image: "👩‍🎓",
+      text: "dabite has been a lifesaver! The food tastes just like home and fits perfectly within my budget. The dal chawal combo is my favorite - it's so comforting after long study sessions.",
+      image: "/images/kriti.jpeg",
       subscription: "Monthly Plan"
     },
     {
@@ -25,18 +25,18 @@ const Testimonials = () => {
       role: "Software Developer",
       company: "Bangalore",
       rating: 5,
-      text: "Working from home made me realize how much I missed home-cooked meals. Dabite's subscription model is flexible and the food quality is consistently excellent. Highly recommended!",
-      image: "👨‍💻",
+      text: "Working from home made me realize how much I missed home-cooked meals. dabite's subscription model is flexible and the food quality is consistently excellent. Highly recommended!",
+      image: "/images/rahul.jpeg",
       subscription: "Weekly Plan"
     },
     {
       id: 3,
-      name: "Ananya Gupta",
+      name: "Aakansha Jain",
       role: "Medical Student",
       college: "AIIMS",
       rating: 5,
-      text: "As a medical student, I barely have time to cook. Dabite ensures I eat healthy, nutritious meals without compromising on taste. The delivery is always on time!",
-      image: "👩‍⚕️",
+      text: "As a medical student, I barely have time to cook. dabite ensures I eat healthy, nutritious meals without compromising on taste. The delivery is always on time!",
+      image: "/images/akansha.jpeg",
       subscription: "Daily Plan"
     },
     {
@@ -46,17 +46,17 @@ const Testimonials = () => {
       college: "IIM Ahmedabad",
       rating: 5,
       text: "The variety in menu keeps things interesting. I love how they accommodate my dietary preferences. The value for money is unbeatable compared to restaurant food.",
-      image: "👨‍🎓",
+      image: "/images/arjun.jpeg",
       subscription: "Monthly Plan"
     },
     {
       id: 5,
-      name: "Sneha Reddy",
+      name: "Shristi Jain",
       role: "Working Professional",
       company: "Hyderabad",
       rating: 4,
-      text: "Moved to a new city for work and was struggling with food. Dabite felt like finding a piece of home. The South Indian specials are absolutely authentic!",
-      image: "👩‍💼",
+      text: "Moved to a new city for work and was struggling with food. dabite felt like finding a piece of home. The South Indian specials are absolutely authentic!",
+      image: "/images/shristi.jpeg",
       subscription: "Weekly Plan"
     }
   ];
@@ -86,14 +86,12 @@ const Testimonials = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16 animate-fade-in">
-          <Badge className="bg-confetti text-woodland px-4 py-2 text-sm font-medium mb-4">
-            ❤️ Customer Love
-          </Badge>
-          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6">
+          
+          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 cursor-default">
             What our customers say
           </h2>
-          <p className="text-xl text-stark-white/80 max-w-3xl mx-auto">
-            Join thousands of happy customers who have made Dabite their trusted food partner
+          <p className="text-xl text-stark-white/80 max-w-3xl mx-auto cursor-default">
+            Join thousands of happy customers who have made dabite their trusted food partner
           </p>
         </div>
 
@@ -104,20 +102,22 @@ const Testimonials = () => {
                 <div className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-8">
                   
                   {/* Customer Avatar & Info */}
-                  <div className="flex-shrink-0 text-center lg:text-left">
-                    <div className="w-24 h-24 bg-confetti rounded-full flex items-center justify-center text-4xl mb-4 mx-auto lg:mx-0">
-                      {testimonials[currentTestimonial].image}
-                    </div>
-                    <h3 className="text-xl font-semibold text-stark-white mb-1">
+                  <div className="flex-shrink-0 text-center lg:text-left cursor-default">
+                    <img
+                      src={testimonials[currentTestimonial].image}
+                      alt={testimonials[currentTestimonial].name}
+                      className="w-24 h-24 rounded-full object-cover shadow-md mb-4 mx-auto lg:mx-0"
+                    />
+                    <h3 className="text-xl font-semibold text-stark-white mb-1 cursor-default">
                       {testimonials[currentTestimonial].name}
                     </h3>
-                    <p className="text-stark-white/80 text-sm mb-2">
+                    <p className="text-stark-white/80 text-sm mb-2 cursor-default">
                       {testimonials[currentTestimonial].role}
                     </p>
-                    <p className="text-stark-white/60 text-xs mb-3">
+                    <p className="text-stark-white/60 text-xs mb-3 cursor-default">
                       {testimonials[currentTestimonial].college || testimonials[currentTestimonial].company}
                     </p>
-                    <Badge className="bg-canary text-woodland">
+                    <Badge className="bg-canary text-woodland hover:bg-canary cursor-default">
                       {testimonials[currentTestimonial].subscription}
                     </Badge>
                   </div>
@@ -133,7 +133,7 @@ const Testimonials = () => {
                       </div>
                     </div>
                     
-                    <blockquote className="text-lg lg:text-xl leading-relaxed text-stark-white/90 text-center lg:text-left">
+                    <blockquote className="text-lg lg:text-xl leading-relaxed text-stark-white/90 text-center lg:text-left cursor-default">
                       "{testimonials[currentTestimonial].text}"
                     </blockquote>
                   </div>
@@ -179,16 +179,16 @@ const Testimonials = () => {
         {/* Stats */}
         <div className="grid md:grid-cols-3 gap-8 mt-16">
           <div className="text-center animate-fade-in">
-            <div className="text-3xl lg:text-4xl font-bold text-confetti mb-2">98%</div>
-            <p className="text-stark-white/80">Customer Satisfaction</p>
+            <div className="text-3xl lg:text-4xl font-bold text-confetti mb-2 cursor-default">98%</div>
+            <p className="text-stark-white/80 cursor-default">Customer Satisfaction</p>
           </div>
           <div className="text-center animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            <div className="text-3xl lg:text-4xl font-bold text-confetti mb-2">4.8/5</div>
-            <p className="text-stark-white/80">Average Rating</p>
+            <div className="text-3xl lg:text-4xl font-bold text-confetti mb-2 cursor-default">4.8/5</div>
+            <p className="text-stark-white/80 cursor-default">Average Rating</p>
           </div>
           <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="text-3xl lg:text-4xl font-bold text-confetti mb-2">95%</div>
-            <p className="text-stark-white/80">Retention Rate</p>
+            <div className="text-3xl lg:text-4xl font-bold text-confetti mb-2 cursor-default">95%</div>
+            <p className="text-stark-white/80 cursor-default">Retention Rate</p>
           </div>
         </div>
       </div>

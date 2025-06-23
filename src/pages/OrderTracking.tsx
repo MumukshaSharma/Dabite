@@ -64,7 +64,7 @@ const OrderTracking = () => {
   }, [currentStep]);
 
   return (
-    <div className="min-h-screen bg-stark-white">
+    <div className="min-h-screen bg-stark-white cursor-default">
       <Navbar />
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
@@ -76,7 +76,7 @@ const OrderTracking = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Order Tracking */}
             <div className="lg:col-span-2">
-              <Card className="border-woodland/20">
+              <Card className="border-woodland/20 rounded-2xl shadow-md">
                 <CardHeader>
                   <CardTitle>Order Status</CardTitle>
                   <CardDescription>Real-time updates on your meal preparation and delivery</CardDescription>
@@ -124,7 +124,7 @@ const OrderTracking = () => {
               </Card>
 
               {/* Delivery Executive Info */}
-              <Card className="border-woodland/20 mt-6">
+              <Card className="border-woodland/20 mt-6 rounded-2xl shadow-md">
                 <CardHeader>
                   <CardTitle>Delivery Executive</CardTitle>
                 </CardHeader>
@@ -138,7 +138,7 @@ const OrderTracking = () => {
                       <p className="text-sm text-kelp">Delivery Partner</p>
                       <p className="text-sm text-kelp">Contact: +91 98765 43210</p>
                     </div>
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" className="rounded-xl shadow-md hover:bg-kelp hover:text-stark-white">
                       Call
                     </Button>
                   </div>
@@ -148,7 +148,7 @@ const OrderTracking = () => {
 
             {/* Order Details */}
             <div className="lg:col-span-1">
-              <Card className="border-woodland/20">
+              <Card className="border-woodland/20 rounded-2xl shadow-md">
                 <CardHeader>
                   <CardTitle>Order Details</CardTitle>
                 </CardHeader>
@@ -180,18 +180,18 @@ const OrderTracking = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-woodland/20 mt-6">
+              <Card className="border-woodland/20 mt-6 rounded-2xl shadow-md ">
                 <CardHeader>
                   <CardTitle>Need Help?</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full rounded-xl shadow-md hover:bg-kelp hover:text-stark-white">
                     Chat with Support
                   </Button>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full rounded-xl shadow-md hover:bg-kelp hover:text-stark-white">
                     Call Customer Care
                   </Button>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full rounded-xl shadow-md hover:bg-kelp hover:text-stark-white">
                     Report an Issue
                   </Button>
                 </CardContent>

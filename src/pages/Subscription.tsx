@@ -87,14 +87,14 @@ const Subscription = () => {
   ];
 
   const handleSubscribe = (plan: any) => {
-    navigate('/payment', { state: { selectedPlan: plan } });
+    navigate('/PaymentSub', { state: { selectedPlan: plan } });
   };
 
   return (
     <div className="min-h-screen bg-stark-white">
       <Navbar />
       <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 cursor-default">
           <h1 className="text-4xl font-display font-bold text-woodland mb-4">Choose Your Plan</h1>
           <p className="text-lg text-kelp max-w-2xl mx-auto">
             Select the perfect subscription plan for your needs. Save more with longer commitments!
@@ -105,7 +105,7 @@ const Subscription = () => {
           {plans.map((plan) => (
             <Card 
               key={plan.id} 
-              className={`relative border-2 hover:shadow-xl transition-all cursor-pointer ${
+              className={`relative border-2 hover:shadow-xl transition-all cursor-pointer rounded-xl ${
                 plan.popular 
                   ? 'border-woodland bg-woodland/5 scale-105' 
                   : 'border-woodland/20 hover:border-woodland/40'
@@ -145,7 +145,7 @@ const Subscription = () => {
                 
                 <Button 
                   onClick={() => handleSubscribe(plan)}
-                  className={`w-full ${
+                  className={`w-full rounded-xl ${
                     plan.popular 
                       ? 'bg-woodland hover:bg-kelp text-stark-white' 
                       : 'bg-woodland/90 hover:bg-woodland text-stark-white'
@@ -158,8 +158,8 @@ const Subscription = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-display font-bold text-woodland mb-4">Why Choose Dabite?</h3>
+        <div className="mt-16 text-center cursor-default">
+          <h3 className="text-2xl font-display font-bold text-woodland mb-4">Why Choose dabite?</h3>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="space-y-2">
               <div className="w-16 h-16 bg-confetti/20 rounded-full flex items-center justify-center mx-auto">

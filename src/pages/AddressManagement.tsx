@@ -72,7 +72,7 @@ const AddressManagement = () => {
   return (
     <div className="min-h-screen bg-stark-white">
       <Navbar />
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 cursor-default">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-8">
             <div>
@@ -81,12 +81,12 @@ const AddressManagement = () => {
             </div>
             <Dialog open={isAddingAddress} onOpenChange={setIsAddingAddress}>
               <DialogTrigger asChild>
-                <Button className="bg-woodland hover:bg-kelp text-stark-white">
+                <Button className="bg-woodland hover:bg-kelp text-stark-white rounded-xl shadow-md">
                   <Plus className="h-4 w-4 mr-2" />
                   Add Address
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
+              <DialogContent className="sm:max-w-[425px] cursor-default bg-stark-white/100 shadow-sm">
                 <DialogHeader>
                   <DialogTitle>Add New Address</DialogTitle>
                   <DialogDescription>
@@ -122,6 +122,7 @@ const AddressManagement = () => {
                       placeholder="e.g. Home, Office, Hostel Room"
                       value={newAddress.title}
                       onChange={(e) => setNewAddress({...newAddress, title: e.target.value})}
+                      className="rounded-xl shadow-md"
                     />
                   </div>
                   <div>
@@ -131,6 +132,7 @@ const AddressManagement = () => {
                       placeholder="House/Room number, Building, Area"
                       value={newAddress.address}
                       onChange={(e) => setNewAddress({...newAddress, address: e.target.value})}
+                      className="rounded-xl shadow-md"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
@@ -141,6 +143,7 @@ const AddressManagement = () => {
                         placeholder="City"
                         value={newAddress.city}
                         onChange={(e) => setNewAddress({...newAddress, city: e.target.value})}
+                      className="rounded-xl shadow-md"
                       />
                     </div>
                     <div>
@@ -150,6 +153,7 @@ const AddressManagement = () => {
                         placeholder="110001"
                         value={newAddress.pincode}
                         onChange={(e) => setNewAddress({...newAddress, pincode: e.target.value})}
+                      className="rounded-xl shadow-md"
                       />
                     </div>
                   </div>
@@ -160,9 +164,10 @@ const AddressManagement = () => {
                       placeholder="Near landmark for easy identification"
                       value={newAddress.landmark}
                       onChange={(e) => setNewAddress({...newAddress, landmark: e.target.value})}
+                      className="rounded-xl shadow-md"
                     />
                   </div>
-                  <Button onClick={handleAddAddress} className="w-full bg-woodland hover:bg-kelp text-stark-white">
+                  <Button onClick={handleAddAddress} className="w-full bg-woodland/90 hover:bg-kelp text-stark-white rounded-xl shadow-md">
                     Save Address
                   </Button>
                 </div>
@@ -172,7 +177,7 @@ const AddressManagement = () => {
 
           <div className="space-y-4">
             {addresses.map((address) => (
-              <Card key={address.id} className="border-woodland/20">
+              <Card key={address.id} className="border-woodland/20 rounded-xl shadow-md">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between">
                     <div className="flex items-start space-x-4">
@@ -222,7 +227,7 @@ const AddressManagement = () => {
             ))}
           </div>
 
-          <Card className="border-woodland/20 mt-8">
+          <Card className="border-woodland/20 mt-8 rounded-xl shadow-md">
             <CardHeader>
               <CardTitle>Delivery Areas</CardTitle>
               <CardDescription>We currently deliver to these areas</CardDescription>
@@ -234,7 +239,7 @@ const AddressManagement = () => {
                   'Gurgaon', 'Noida', 'Faridabad',
                   'Ghaziabad', 'Greater Noida', 'Dwarka'
                 ].map((area) => (
-                  <div key={area} className="flex items-center space-x-2 p-3 border border-woodland/10 rounded">
+                  <div key={area} className="flex items-center space-x-2 p-3 border border-woodland/10 rounded-xl shadow-sm">
                     <MapPin className="h-4 w-4 text-woodland" />
                     <span className="text-kelp">{area}</span>
                   </div>

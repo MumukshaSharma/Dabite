@@ -22,7 +22,15 @@ const Onboarding = () => {
     deliveryTime: ''
   });
 
-  const cities = ['Mumbai', 'Delhi', 'Bangalore', 'Pune', 'Hyderabad', 'Chennai'];
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // You can handle form logic here
+    console.log("Onboarding complete!");
+    navigate('/home'); // Redirect to home page
+  };
+
+
+  const cities = ['Mumbai', 'Delhi', 'Bangalore', 'Pune', 'Hyderabad', 'Chennai', 'Jaipur', 'Udaipur'];
   const areas = ['Central', 'North', 'South', 'East', 'West'];
   const allergies = ['Nuts', 'Dairy', 'Gluten', 'Eggs', 'Soy', 'Shellfish'];
 
@@ -53,7 +61,7 @@ const Onboarding = () => {
     <div className="min-h-screen bg-stark-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl space-y-8">
         {/* Progress Bar */}
-        <div className="flex justify-center space-x-2">
+        <div className="flex justify-center space-x-2 rounded-xl">
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
@@ -64,7 +72,9 @@ const Onboarding = () => {
           ))}
         </div>
 
-        <Card className="border-woodland/20 shadow-lg">
+        
+
+        <Card className="border-woodland/20 shadow-lg rounded-2xl">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-display text-woodland">
               {step === 1 && 'Where are you located?'}
@@ -73,18 +83,24 @@ const Onboarding = () => {
               {step === 4 && 'Delivery preferences'}
             </CardTitle>
           </CardHeader>
+          <form
+  onSubmit={step === 4 ? handleSubmit : (e) => {
+    e.preventDefault();
+    handleNext();
+  }}
+>
           <CardContent className="space-y-6">
             {step === 1 && (
               <div className="space-y-4">
-                <div className="space-y-2">
-                  <Label className="text-kelp flex items-center gap-2">
+                <div className="space-y-5 text-center">
+                  <Label className="text-kelp flex items-center justify-center gap-0 ml-2 text-lg mt-0">
                     <MapPin className="h-4 w-4" />
-                    Select your city
+                    select your city
                   </Label>
                   <RadioGroup
                     value={formData.city}
                     onValueChange={(value) => setFormData(prev => ({ ...prev, city: value }))}
-                    className="grid grid-cols-2 gap-4"
+                    className="grid grid-cols-2 gap-3"
                   >
                     {cities.map((city) => (
                       <div key={city} className="flex items-center space-x-2">
@@ -95,7 +111,7 @@ const Onboarding = () => {
                   </RadioGroup>
                 </div>
                 
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <Label className="text-kelp">Area/Locality</Label>
                   <RadioGroup
                     value={formData.area}
@@ -109,7 +125,7 @@ const Onboarding = () => {
                       </div>
                     ))}
                   </RadioGroup>
-                </div>
+                </div> */}
               </div>
             )}
 
@@ -228,13 +244,14 @@ const Onboarding = () => {
             )}
 
             <Button
-              onClick={handleNext}
+              onClick={step === 4 ? handleSubmit : handleNext}
               className="w-full bg-woodland hover:bg-kelp text-stark-white"
             >
               {step === 4 ? 'Complete Setup' : 'Continue'}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </CardContent>
+          </form>
         </Card>
       </div>
     </div>

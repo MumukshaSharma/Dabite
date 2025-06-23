@@ -26,7 +26,7 @@ const Signup = () => {
       return;
     }
     console.log('Signup:', formData);
-    navigate('/onboarding');
+    navigate('/home');
   };
 
   return (
@@ -37,7 +37,7 @@ const Signup = () => {
           <div className="w-full max-w-md">
             <Card className="border-woodland/20 bg-stark-white/95 backdrop-blur-sm shadow-2xl">
               <CardHeader className="text-center space-y-2">
-                <CardTitle className="text-2xl lg:text-3xl text-woodland">Join Dabite</CardTitle>
+                <CardTitle className="text-2xl lg:text-3xl text-woodland">Join dabite</CardTitle>
                 <CardDescription className="text-kelp/80">Create your account and start your healthy eating journey</CardDescription>
               </CardHeader>
               <CardContent>

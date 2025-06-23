@@ -32,7 +32,7 @@ const AuthDialog = ({ open, onOpenChange, onSuccess }: AuthDialogProps) => {
       <DialogContent className="sm:max-w-md bg-stark-white border-woodland/20">
         <DialogHeader>
           <DialogTitle className="text-2xl font-display text-woodland text-center">
-            Welcome to Dabite
+            Welcome to dabite
           </DialogTitle>
         </DialogHeader>
         
